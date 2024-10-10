@@ -1,5 +1,17 @@
 # @builder.io/sdk
 
+## 3.0.2
+
+### Patch Changes
+
+- 1118b05: Add built-in personalization container to suppoert block level personalization
+
+## 3.0.1
+
+### Patch Changes
+
+- 69859d4: serialize functions for registering plugins so you can have showIf on fields as functions
+
 ## 3.0.0
 
 ### Major Changes

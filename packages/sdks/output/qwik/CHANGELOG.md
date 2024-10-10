@@ -1,5 +1,77 @@
 # Builder.io Qwik SDK Changelog (@builder.io/sdk-qwik)
 
+## 0.16.13
+
+### Patch Changes
+
+- 348de96: Fix: remove node-runtime logic from browser and edge bundles
+- 348de96: Fix: disable `initializeNodeRuntime()` on arm64 machines running node 20
+
+## 0.16.11
+
+### Patch Changes
+
+- 50778a4: types: export GetContentOptions
+
+## 0.16.10
+
+### Patch Changes
+
+- a44d73b: Fix: add `types` `exports` key to fix TS types support for projects in `bundler` mode.
+
+## 0.16.9
+
+### Patch Changes
+
+- 51285ea: Fix: repeat items when they are Symbols
+
+## 0.16.7
+
+### Patch Changes
+
+- 9c4ab57: Feature: add `@builder.io/sdk-qwik/node/init` entry point with `initializeNodeRuntime` export that sets the IVM instance.
+
+  This import should be called in a server-only location such as,
+
+  ```tsx
+  // entry.ssr.tsx
+  import {
+    renderToStream,
+    type RenderToStreamOptions,
+  } from "@builder.io/qwik/server";
+  import { manifest } from "@qwik-client-manifest";
+  import Root from "./root";
+  import { initializeNodeRuntime } from "@builder.io/sdk-qwik/node/init";
+
+  initializeNodeRuntime();
+
+  export default function (opts: RenderToStreamOptions) {
+    return renderToStream(<Root />, {
+      manifest,
+      ...opts,
+      // ...
+    });
+  }
+  ```
+
+## 0.16.6
+
+### Patch Changes
+
+- 69859d4: serialize functions for registering plugins so you can have showIf on fields as functions
+
+## 0.16.5
+
+### Patch Changes
+
+- e8b80b3: Fix: scoped `isInteractive` prop for RSC SDK only so that it fixes Inner Layout > "Columns" option during visual editing
+
+## 0.16.4
+
+### Patch Changes
+
+- 345086b: Fixes data bindings in Text blocks
+
 ## 0.16.3
 
 ### Patch Changes

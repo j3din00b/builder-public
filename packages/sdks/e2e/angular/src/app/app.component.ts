@@ -3,6 +3,7 @@ import {
   _processContentResult,
   fetchOneEntry,
   getBuilderSearchParams,
+  type RegisteredComponent,
 } from '@builder.io/sdk-angular';
 import { getProps } from '@sdk/tests';
 import { HelloComponent } from './hello.component';
@@ -14,20 +15,22 @@ interface BuilderProps {
   apiKey: string;
   model: string;
   content: any;
+  data?: any;
 }
 
 @Component({
   selector: 'app-root',
   template: `
     <ng-container *ngIf="content; else notFound">
-      <content-variants
+      <builder-content
         [model]="model"
         [content]="content"
         [apiKey]="apiKey"
         [trustedHosts]="trustedHosts"
         [canTrack]="canTrack"
         [customComponents]="customComponents"
-      ></content-variants>
+        [data]="data"
+      ></builder-content>
     </ng-container>
 
     <ng-template #notFound>
@@ -43,12 +46,26 @@ export class AppComponent {
   apiKey: BuilderProps['apiKey'] = 'abcd';
   model: BuilderProps['model'] = 'page';
   content: BuilderProps['content'];
+  data: BuilderProps['data'];
 
-  customComponents = [
+  customComponents: RegisteredComponent[] = [
     {
       component: HelloComponent,
       name: 'Hello',
       inputs: [],
+      defaultChildren: [
+        {
+          '@type': '@builder.io/sdk:Element',
+          '@version': 2,
+          id: 'builder-ebca7d55d34f4fc9a6536600959cef5d',
+          component: {
+            name: 'Text',
+            options: {
+              text: 'inside an h1',
+            },
+          },
+        },
+      ],
     },
   ];
 
@@ -74,5 +91,6 @@ export class AppComponent {
     this.apiKey = builderProps.apiKey;
     this.model = builderProps.model;
     this.apiVersion = builderProps.apiVersion;
+    this.data = builderProps.data;
   }
 }

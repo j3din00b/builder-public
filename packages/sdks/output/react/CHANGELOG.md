@@ -1,5 +1,59 @@
 # Builder.io React SDK Changelog (@builder.io/sdk-react)
 
+## 2.0.19
+
+### Patch Changes
+
+- 9836542: Fix: remove node-runtime logic from browser and edge bundles
+
+## 2.0.16
+
+### Patch Changes
+
+- 348de96: Fix: disable `initializeNodeRuntime()` on arm64 machines running node 20
+
+## 2.0.15
+
+### Patch Changes
+
+- 50778a4: types: export GetContentOptions
+
+## 2.0.14
+
+### Patch Changes
+
+- a44d73b: Fix: add `types` `exports` key to fix TS types support for projects in `bundler` mode.
+
+## 2.0.13
+
+### Patch Changes
+
+- 51285ea: Fix: repeat items when they are Symbols
+
+## 2.0.12
+
+### Patch Changes
+
+- 1a69210: Chore: improve performance by caching block processing during renders.
+
+## 2.0.9
+
+### Patch Changes
+
+- 69859d4: serialize functions for registering plugins so you can have showIf on fields as functions
+
+## 2.0.8
+
+### Patch Changes
+
+- e8b80b3: Fix: scoped `isInteractive` prop for RSC SDK only so that it fixes Inner Layout > "Columns" option during visual editing
+
+## 2.0.5
+
+### Patch Changes
+
+- 345086b: Fixes data bindings in Text blocks
+
 ## 2.0.3
 
 ### Patch Changes
